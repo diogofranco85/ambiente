@@ -1,7 +1,7 @@
 # AMBIENTE DE DESENVOLVIMENTO - DOCKER / NODE
 
 ### Objetivo
-* Criar um ambiente de desenvolvimento que seja mais proximo que teriamos em um ambiente de produção
+* Criar um ambiente de desenvolvimento que seja mais próximo ao que teriamos em um ambiente de produção
 
 ### Clonar o projeto
 * git clone git@github.com:diogofranco85/ambiente.git
