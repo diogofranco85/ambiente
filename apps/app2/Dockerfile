@@ -5,4 +5,4 @@ COPY ./apps/app2/src ./src
 RUN npm install
 ENV PATH=/app/node_modules/.bin:$PATH
 
-EXPOSE 3001
+EXPOSE 3002
