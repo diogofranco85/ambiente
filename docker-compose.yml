@@ -10,14 +10,16 @@ services:
       - 80:${NGINX_PORT_HTTP}
       - 443:${NGINX_PORT_HTTPS}
     volumes:
-            - ./docker/nginx/conf.d:/etc/nginx/conf.d
-            - ./docker/front:/var/www
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/front:/var/www/html
     depends_on:
       - app1
       - app2
+      - app3
     links:
       - app1
       - app2
+      - app3
 
   ngrok:
     image: shkoliar/ngrok:latest
@@ -40,6 +42,8 @@ services:
       context: .
       dockerfile: ./apps/app1/Dockerfile
     container_name: app1
+    volumes:
+      - ./apps/app1:/usr/app
     command: npm run start
 
   app2:
@@ -47,4 +51,15 @@ services:
       context: .
       dockerfile: ./apps/app2/Dockerfile
     container_name: app2
+    volumes:
+      - ./apps/app2:/usr/app
     command: npm run start
+
+  app3:
+    image: php:7.2.1-fpm
+    container_name: app3
+    working_dir: /var/www/html
+    expose:
+      - 9000
+    volumes:
+      - ./docker/front:/var/www/html
