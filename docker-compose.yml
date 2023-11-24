@@ -12,6 +12,12 @@ services:
     volumes:
             - ./docker/nginx/conf.d:/etc/nginx/conf.d
             - ./docker/front:/var/www
+    depends_on:
+      - app1
+      - app2
+    links:
+      - app1
+      - app2
 
   ngrok:
     image: shkoliar/ngrok:latest
@@ -31,22 +37,14 @@ services:
 
   app1:
     build:
-      context: ./apps/app1
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./apps/app1/Dockerfile
     container_name: app1
     command: npm run start
-    links:
-      - nginx
-    depends_on:
-      - nginx
 
   app2:
     build:
-      context: ./apps/app2
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./apps/app2/Dockerfile
     container_name: app2
     command: npm run start
-    links:
-      - nginx
-    depends_on:
-      - nginx
