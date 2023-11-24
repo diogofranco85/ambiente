@@ -7,7 +7,8 @@ server.on("request", (request, response) => {
     response.setHeader("Content-Type", "application/json");
     const responseBody = {
         success: true,
-        dateTime: (new Date()).toISOString()
+        dateTime: (new Date()).toISOString(),
+        env: "app1"
     }
 
     response.write(JSON.stringify(responseBody));
