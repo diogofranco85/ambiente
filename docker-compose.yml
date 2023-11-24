@@ -1,0 +1,41 @@
+version: "3"
+services:
+
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    tty: true
+    container_name: nginx
+    ports:
+      - 80:${NGINX_PORT_HTTP}
+      - 443:${NGINX_PORT_HTTPS}
+    volumes:
+            - ./docker/nginx/conf.d:/etc/nginx/conf.d
+            - ./docker/front:/var/www
+
+  ngrok:
+    image: shkoliar/ngrok:latest
+    restart: unless-stopped
+    environment:
+      - PROTOCOL=http
+      - PORT=${NGINX_PORT_HTTP}
+      - DOMAIN=nginx
+      - AUTH_TOKEN=${AUTH_TOKEN}
+      - DEBUG=true
+    ports:
+      - 4040:4040
+    links: 
+      - nginx
+    depends_on:
+      - nginx
+
+  app1:
+    build:
+      context: ./app/health
+      dockerfile: Dockerfile
+    container_name: app1
+    command: npm run start
+    links:
+      - nginx
+    depends_on:
+      - nginx
