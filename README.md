@@ -24,9 +24,15 @@
 - App2 -  http://localhost/app2
 
 ### Imagens
+chamada na api app1
+
 ![App1](https://github.com/diogofranco85/ambiente/blob/main/imagens/app1.png "App1")
 
+Chamada na api app2
+
 ![App2](https://github.com/diogofranco85/ambiente/blob/main/imagens/app2.png "App2")
+
+Proxy Reverso no nginx
 
 ![Nginx Config](https://github.com/diogofranco85/ambiente/blob/main/imagens/nginx_config.png "Nginx Config") 
 
