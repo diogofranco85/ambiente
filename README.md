@@ -3,6 +3,13 @@
 ### Objetivo
 Criar um ambiente de desenvolvimento que seja mais proximo que teriamos em um ambiente de produção
 
+### Clonar o projeto
+git clone git@github.com:diogofranco85/ambiente.git
+
+### Subir ambiente
+* Necessário ter o docker e docker composer instalado na maquina
+Basta na raiz do projeto da o comando docker-compose up ou docker-compose up -d para rodar em background
+
 ### Características 
 
 - Ngrok -  Permite acesso de um endpoint externo a rede local
@@ -21,8 +28,4 @@ Criar um ambiente de desenvolvimento que seja mais proximo que teriamos em um am
 ![App2](https://github.com/diogofranco85/ambiente/blob/main/imagens/app2.png "App2")
 
 ![Nginx Config](https://github.com/diogofranco85/ambiente/blob/main/imagens/nginx_config.png "Nginx Config") 
-
-# Editor.md
-
-![](https://img.shields.io/github/stars/pandao/editor.md.svg) ![](https://img.shields.io/github/forks/pandao/editor.md.svg) ![](https://img.shields.io/github/tag/pandao/editor.md.svg) ![](https://img.shields.io/github/release/pandao/editor.md.svg) ![](https://img.shields.io/github/issues/pandao/editor.md.svg) ![]
 
